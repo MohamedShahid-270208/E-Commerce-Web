@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopEase | Your Smart Store</title>
+  <style>
+    /* ===== Base ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f0f4ff, #f9f9f9);
+      color: #222;
+      line-height: 1.6;
+      transition: background 0.3s ease;
+    }
+
+    h1, h2 {
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #2d2d2d;
+    }
+
+    /* ===== Navigation ===== */
+    nav {
+      background: linear-gradient(90deg, #4b6cb7, #182848);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 14px 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #f4f4f4;
+      text-decoration: none;
+      padding: 10px 20px;
+      margin: 4px;
+      border-radius: 30px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* ===== Section Styling ===== */
+    .section {
+      display: none;
+      max-width: 850px;
+      margin: 40px auto;
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 30px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+      animation: fadeIn 0.4s ease;
+    }
+
+    .active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== Buttons ===== */
+    button {
+      background: linear-gradient(90deg, #4b6cb7, #182848);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 18px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(24,40,72,0.25);
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #5f7edb, #253a6a);
+      transform: scale(1.05);
+      box-shadow: 0 6px 14px rgba(24,40,72,0.3);
+    }
+
+    /* ===== Forms ===== */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    input, textarea, select {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 10px;
+      outline: none;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: #4b6cb7;
+      box-shadow: 0 0 6px rgba(75,108,183,0.3);
+    }
+
+    .error {
+      color: #c62828;
+      font-size: 14px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 10px;
+    }
+
+    li {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      padding: 22px;
+      background: linear-gradient(90deg, #4b6cb7, #182848);
+      color: #f2f2f2;
+      margin-top: 50px;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+    }
+
+    footer span {
+      color: #ffd166;
+      font-weight: 600;
+    }
+
+    /* ===== Accent highlights ===== */
+    #home h1 {
+      background: linear-gradient(90deg, #4b6cb7, #182848);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    #products li button {
+      background: linear-gradient(90deg, #ffd166, #ff9a3c);
+      color: #111;
+      box-shadow: 0 4px 10px rgba(255,161,76,0.3);
+    }
+
+    #products li button:hover {
+      background: linear-gradient(90deg, #ffcd5c, #ff8c00);
+      transform: scale(1.06);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#home" onclick="showSection('home')">Home</a></li>
+      <li><a href="#products" onclick="showSection('products')">Products</a></li>
+      <li><a href="#orders" onclick="showSection('orders')">My Orders</a></li>
+      <li><a href="#wishlist" onclick="showSection('wishlist')">Wishlist</a></li>
+      <li><a href="#reviews" onclick="showSection('reviews')">Reviews</a></li>
+      <li><a href="#login" onclick="showSection('login')">Login</a></li>
+      <li><a href="#register" onclick="showSection('register')">Register</a></li>
+      <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
+      <li><a href="#about" onclick="showSection('about')">About</a></li>
+    </ul>
+  </nav>
+
+  <div id="home" class="section active">
+    <h1>Welcome to ShopEase</h1>
+    <p>Experience the perfect blend of style and simplicity — your one-stop online destination for quality shopping.</p>
+  </div>
+
+  <div id="products" class="section">
+    <h2>Top Products</h2>
+    <ul>
+      <li>Laptop - $999 <button onclick="addToWishlist('Laptop')">♡ Wishlist</button></li>
+      <li>Smartphone - $599 <button onclick="addToWishlist('Smartphone')">♡ Wishlist</button></li>
+      <li>Headphones - $199 <button onclick="addToWishlist('Headphones')">♡ Wishlist</button></li>
+    </ul>
+  </div>
+
+  <div id="orders" class="section">
+    <h2>Your Orders</h2>
+    <ul id="orderList"></ul>
+  </div>
+
+  <div id="wishlist" class="section">
+    <h2>Wishlist</h2>
+    <ul id="wishlistItems"></ul>
+  </div>
+
+  <div id="reviews" class="section">
+    <h2>Reviews</h2>
+    <div id="reviewList"></div>
+    <textarea id="newReview" placeholder="Write a review..."></textarea>
+    <button onclick="addReview()">Submit</button>
+  </div>
+
+  <div id="login" class="section">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="email" id="loginEmail" placeholder="Email" required>
+      <input type="password" id="loginPass" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+    <p id="loginError" class="error"></p>
+  </div>
+
+  <div id="register" class="section">
+    <h2>Register</h2>
+    <form id="registerForm">
+      <input type="text" id="regName" placeholder="Full Name" required>
+      <input type="email" id="regEmail" placeholder="Email" required>
+      <input type="password" id="regPass" placeholder="Password (min 6 chars)" required minlength="6">
+      <button type="submit">Register</button>
+    </form>
+    <p id="regError" class="error"></p>
+  </div>
+
+  <div id="contact" class="section">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:support@shopease.com">support@shopease.com</a><br>Phone: +91 98765 43210</p>
+  </div>
+
+  <div id="about" class="section">
+    <h2>About ShopEase</h2>
+    <p>ShopEase is your modern destination for premium shopping. We believe in quality, trust, and the art of elegant simplicity.</p>
+  </div>
+
+  <footer>
+    © 2025 <span>ShopEase</span> — All Rights Reserved
+  </footer>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      if (id === 'orders' || id === 'wishlist' || id === 'reviews') loadUserData();
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = loginEmail.value;
+      const pass = loginPass.value;
+      const users = JSON.parse(localStorage.getItem('users') || '[]');
+      const user = users.find(u => u.email === email && u.pass === pass);
+      if (user) {
+        alert('Login successful!');
+        localStorage.setItem('loggedInUser', email);
+        loadUserData();
+      } else {
+        loginError.textContent = 'Invalid credentials. Try again.';
+      }
+    });
+
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = regName.value.trim();
+      const email = regEmail.value.trim();
+      const pass = regPass.value.trim();
+      const users = JSON.parse(localStorage.getItem('users') || '[]');
+
+      if (!email.includes('@')) {
+        regError.textContent = 'Please enter a valid email.';
+        return;
+      }
+      if (users.some(u => u.email === email)) {
+        regError.textContent = 'Email already exists.';
+        return;
+      }
+
+      users.push({ name, email, pass });
+      localStorage.setItem('users', JSON.stringify(users));
+      alert('Registered successfully! Please login.');
+      showSection('login');
+    });
+
+    function addToWishlist(item) {
+      const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+      if (!wishlist.includes(item)) {
+        wishlist.push(item);
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        alert(`${item} added to your wishlist!`);
+      } else {
+        alert('Already in wishlist.');
+      }
+      loadUserData();
+    }
+
+    function addReview() {
+      const review = newReview.value.trim();
+      if (!review) return;
+      const reviews = JSON.parse(localStorage.getItem('reviews') || '[]');
+      reviews.push(review);
+      localStorage.setItem('reviews', JSON.stringify(reviews));
+      newReview.value = '';
+      loadUserData();
+    }
+
+    function loadUserData() {
+      const orders = JSON.parse(localStorage.getItem('orders') || '["Order #A123 - Laptop", "Order #B567 - Smartphone"]');
+      orderList.innerHTML = orders.map(o => `<li>${o}</li>`).join('');
+      const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+      wishlistItems.innerHTML = wishlist.map(i => `<li>${i}</li>`).join('');
+      const reviews = JSON.parse(localStorage.getItem('reviews') || '[]');
+      reviewList.innerHTML = reviews.map(r => `<p>• ${r}</p>`).join('');
+    }
+
+    loadUserData();
+  </script>
+</body>
+</html>
